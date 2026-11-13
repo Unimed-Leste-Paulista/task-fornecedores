@@ -1,0 +1,10 @@
+﻿{
+    "mcpServers":  {
+                       "oracle-sqlcl":  {
+                                            "args":  [
+                                                         "-mcp"
+                                                     ],
+                                            "command":  "C:\\Users\\katriel.oliveira\\.vscode\\extensions\\oracle.sql-developer-26.3.1-win32-x64\\dbtools\\sqlcl\\bin\\sql.exe"
+                                        }
+                   }
+}
