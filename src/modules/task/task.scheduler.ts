@@ -54,11 +54,12 @@ export class TaskScheduler implements OnApplicationBootstrap {
     const logId = await this.iniciarLog(competencia, origem, inicio);
 
     try {
-      const atualizados = await this.taskService.runTask(competencia);
+      const resultado = await this.taskService.runTask(competencia);
       await this.finalizarLog(logId, competencia, origem, inicio, {
         status: 'SUCESSO',
-        fornecedoresAtualizados: atualizados,
+        fornecedoresAtualizados: resultado.fornecedoresAtualizados,
         motivoErro: null,
+        cnpjsNaoEncontrados: resultado.cnpjsNaoEncontrados,
       });
     } catch (erro: unknown) {
       this.logger.error(
@@ -69,6 +70,7 @@ export class TaskScheduler implements OnApplicationBootstrap {
         status: 'ERRO',
         fornecedoresAtualizados: null,
         motivoErro: this.descreverErro(erro),
+        cnpjsNaoEncontrados: null,
       });
     } finally {
       this.emExecucao = false;
