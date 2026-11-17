@@ -1,0 +1,11 @@
+services:
+    backend:
+      build: .
+      env_file: .env
+      deploy:
+          resources:
+              limits:
+                  memory: 1g
+                  cpus: "2.0"
+      volumes:
+          - /opt/oracle:/opt/oracle
