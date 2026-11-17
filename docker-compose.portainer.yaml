@@ -1,0 +1,11 @@
+services:
+    backend:
+        image: ghcr.io/unimed-leste-paulista/task-fornecedores:1.0.0
+        env_file: .env
+        deploy:
+            resources:
+                limits:
+                    memory: 1g
+                    cpus: "2.0"
+        volumes:
+            - /opt/oracle:/opt/oracle

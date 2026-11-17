@@ -37,4 +37,8 @@ export class TaskFornecedoresLogModel {
 
   @Column({ name: 'A_MOTIVO_ERRO', type: 'clob', nullable: true })
   motivoErro!: string | null;
+
+  /** CNPJs não encontrados nos arquivos da Receita, com a origem: "00.000.000/0000-00 (Simples); ..." */
+  @Column({ name: 'A_CNPJS_NAO_ENCONTRADOS', type: 'clob', nullable: true })
+  cnpjsNaoEncontrados!: string | null;
 }
