@@ -1,7 +1,8 @@
 services:
     backend:
         image: ghcr.io/unimed-leste-paulista/task-fornecedores:1.0.0
-        env_file: .env
+        env_file:
+            - stack.env
         deploy:
             resources:
                 limits:
@@ -9,3 +10,4 @@ services:
                     cpus: "2.0"
         volumes:
             - /opt/oracle:/opt/oracle
+        restart: always
